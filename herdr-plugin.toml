@@ -22,7 +22,7 @@ platforms = ["linux", "macos"]
 command = ["bash", "-c", "exec \"${HERDR_BIN_PATH:-herdr}\" plugin pane open --plugin zenbones --entrypoint picker --placement popup --focus"]
 
 [[keys.command]]
-key = "prefix+z"
+key = "prefix+shift+z"
 type = "plugin_action"
 command = "zenbones.open"
 description = "pick a zenbones theme"

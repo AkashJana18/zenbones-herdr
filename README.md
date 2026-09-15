@@ -38,13 +38,13 @@ Marketplace listing requires the repository topic `herdr-plugin`.
 Open the theme picker:
 
 ```
-prefix+z
+prefix+shift+z
 ```
 
 Or invoke directly:
 
 ```bash
-herdr plugin action invoke zenbones.open --plugin zenbones
+herdr plugin action invoke open --plugin zenbones
 ```
 
 Apply a specific theme directly:
@@ -58,7 +58,7 @@ Apply a specific theme directly:
 Or via the CLI picker invocation:
 
 ```bash
-herdr plugin action invoke zenbones.open --plugin zenbones
+herdr plugin action invoke open --plugin zenbones
 ```
 
 Available slugs: `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`.
