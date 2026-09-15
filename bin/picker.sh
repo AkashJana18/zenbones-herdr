@@ -29,7 +29,7 @@ pick() {
     local chosen
     chosen="$(
       for t in "${all[@]}"; do entry "$t"; done |
-        fzf --delimiter='\t' --with-nth=2.. --prompt='zenbones> ' --height=40% --reverse --no-multi || true
+        fzf --delimiter='\t' --with-nth=2.. --prompt='zenbones> ' --height=100% --no-multi || true
     )"
     [ -n "$chosen" ] || return 0
     SELECTED="${chosen%%$'\t'*}"
@@ -37,14 +37,14 @@ pick() {
     printf '\n zenbones themes\n\n'
     for i in "${!all[@]}"; do
       [ "${all[$i]}" = "$current" ] && suffix='  (current)' || suffix=''
-      printf '  [%d] %s%s\n' "$((i+1))" "${all[$i]//-/ }" "$suffix"
+      printf '  [%d] %s%s\n' "$((i + 1))" "${all[$i]//-/ }" "$suffix"
     done
     printf '\n  theme number> '
     local num
     read -r num
     [ -n "$num" ] || return 0
     [[ "$num" =~ ^[0-9]+$ ]] && [ "$num" -ge 1 ] && [ "$num" -le "${#all[@]}" ] || return 0
-    SELECTED="${all[$((num-1))]}"
+    SELECTED="${all[$((num - 1))]}"
   fi
 }
 
