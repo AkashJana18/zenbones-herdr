@@ -1,135 +1,95 @@
-# Zenwritten for Herdr
+# Zenbones for Herdr
 
-Minimal paper theme for Herdr. Port of [zenbones](https://github.com/zenbones-theme/zenbones.nvim) `zenwritten` for the Herdr TUI.
+12 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
-Source palette: `hsluv(0,0,94)` paper `#eeeeee`, `hsluv(0,0,22)` ink `#353535` (light) and `hsluv(0,0,9)` `#191919` / `hsluv(0,0,76)` `#bbbbbb` (dark), with zenbones accent hues.
+## Themes
 
-## Compatibility
-
-- Herdr `>=0.8.0` (tested on `0.9.0`)
-- Platforms: Linux, macOS, Windows
-- Linux/macOS: `bash`, `awk`, `grep`, `ps`
-- Windows: PowerShell 5.1+ (`powershell.exe`)
-
-No additional dependencies.
+| Theme | Variants | Description |
+|---|---|---|
+| **zenbones** | light, dark | The base theme — contrast-focused, warm accents |
+| **zenwritten** | light, dark | Zero saturation, pure grayscale + zenbones accents |
+| **neobones** | light, dark | Inspired by neovim.io — green-leaning |
+| **forestbones** | light, dark | Inspired by Everforest — natural greens and golds |
+| **rosebones** | light, dark | Inspired by Rose Pine — purple and rose tones |
+| **tokyobones** | light, dark | Inspired by Tokyo Night — deep blue-violet |
+| **seoulbones** | light, dark | Inspired by Seoul256 — balanced mid-tones |
+| **nordbones** | dark only | Inspired by Nord — arctic blues |
+| **duckbones** | dark only | Inspired by Spaceduck — high contrast space |
+| **zenburned** | dark only | Inspired by Zenburn — muted warm gray |
+| **kanagawabones** | dark only | Inspired by Kanagawa — Japanese ink wash |
+| **vimbones** | light only | Inspired by vim.org — warm yellow-green |
 
 ## Installation
 
-From GitHub:
-
 ```bash
-herdr plugin install AkashJana18/zenwritten-herdr
+herdr plugin install AkashJana18/zenbones-herdr
 ```
 
-From local checkout:
+Or from a local checkout:
 
 ```bash
-herdr plugin link /path/to/zenwritten-herdr
-herdr plugin list
-herdr plugin action list --plugin zenwritten
+herdr plugin link /path/to/zenbones-herdr
 ```
 
-Marketplace listing requires the repository topic `herdr-plugin`. The index refreshes every 30 minutes.
+Marketplace listing requires the repository topic `herdr-plugin`.
 
 ## Usage
 
-Herdr exposes plugin actions in all contexts (`global`, `workspace`, `tab`, `pane`). Invoke via the command palette or CLI.
+Open the theme picker:
 
-CLI:
+```
+prefix+z
+```
+
+Or invoke directly:
 
 ```bash
-herdr plugin action invoke zenwritten.light --plugin zenwritten   # or dark, auto, toggle
-herdr plugin action invoke zenwritten.dark --plugin zenwritten
-herdr plugin action invoke zenwritten.auto --plugin zenwritten
-herdr plugin action invoke zenwritten.toggle --plugin zenwritten
+herdr plugin action invoke zenbones.open --plugin zenbones
 ```
 
-On Windows the action IDs are `zenwritten.light-win`, `zenwritten.dark-win`, `zenwritten.auto-win`, `zenwritten.toggle-win`.
-
-Direct execution:
+Apply a specific theme directly:
 
 ```bash
-./bin/apply.sh light
-./bin/apply.sh dark
-./bin/apply.sh auto
-./bin/apply.sh toggle
+./bin/apply.sh tokyobones-dark
+./bin/apply.sh zenbones-light
+./bin/apply.sh nordbones-dark
 ```
 
-PowerShell (Windows):
+Or via the CLI picker invocation:
 
-```powershell
-.\bin\apply.ps1 light
-.\bin\apply.ps1 dark
-.\bin\apply.ps1 auto
-.\bin\apply.ps1 toggle
+```bash
+herdr plugin action invoke zenbones.open --plugin zenbones
 ```
 
-`light` | `dark` writes a single `[theme.custom]` block and sets `auto_switch = false`. `auto` writes `[theme.custom]` (fallback) plus `[theme.custom.light]` and `[theme.custom.dark]` and sets `auto_switch = true`.
+Available slugs: `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`.
 
 ## What is modified
 
-Target file: `~/.config/herdr/config.toml` (or `$HERDR_CONFIG_PATH`). The plugin edits only theme keys.
+The plugin writes a `[theme.custom]` block to `~/.config/herdr/config.toml` (or `$HERDR_CONFIG_PATH`). Backups are created as `config.toml.bak-YYYYMMDD`. The plugin runs `herdr server reload-config` after writing. To revert, remove the `[theme.custom]` block or restore the backup.
 
-```toml
-[theme]
-name = "vesper"       # preserved
-auto_switch = false    # true after `auto`
+Each file in `themes/` contains the 19 Herdr theme tokens (`panel_bg`, `sidebar_bg`, `text`, `accent`, `red`, `green`, ...) pre-computed from the source palette, so there is no runtime color conversion.
 
-[theme.custom]
-panel_bg = "#eeeeee"
-sidebar_bg = "#d1d1d1"
-active_row_bg = "#c5c0c0"
-selection_bg = "#d9d9d9"
-text = "#353535"
-subtext0 = "#686868"
-accent = "#286486"
-red = "#a8334c"
-green = "#4f6c31"
-yellow = "#944927"
-blue = "#286486"
-mauve = "#88507d"
-teal = "#3b8992"
-peach = "#c49a6c"
-# ... plus surface0, surface1, surface_dim, overlay0, overlay1
-```
+## Compatibility
 
-Backups are created as `config.toml.bak-YYYYMMDD` (one per day). The plugin runs `herdr server reload-config` after writing. If reload fails, run it manually.
+- Herdr `>=0.8.0`
+- Platforms: Linux, macOS
+- Requires: `bash`, `awk`, `grep` (standard on all Unix systems)
+- Optional: `fzf` for the interactive picker (falls back to numbered menu)
 
-To revert, remove the `[theme.custom]` blocks or restore the backup.
+## Credits
 
-## Palette
+All color palettes are ported from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) Neovim colorscheme by [winston@wintrcat.uk](https://github.com/zenbones-theme). Zenbones uses HSLuv perceptually uniform color space for palette generation. Individual theme inspirations:
 
-Files in `themes/` are 16-color palettes in Ghostty format. The format is used as a compact interchange for the 16 ANSI colors and does not require Ghostty. The plugin uses them only to derive Herdr UI tokens.
-
-- `themes/zenwritten-light` — `background #eeeeee`, `foreground #353535`, `palette 0 #c5c0c0`, `1 #a8334c`, `2 #4f6c31`, `3 #944927`, `4 #286486`, `5 #88507d`, `6 #3b8992`, `7 #686868`
-- `themes/zenwritten-dark` — `background #191919`, `foreground #bbbbbb`, `palette 0 #3f393b`, `1 #de6e7c`, `2 #819b69`, `3 #b77e64`, `4 #6099c0`, `5 #b279a7`, `6 #66a5ad`, `7 #818181`
-
-Mapping to Herdr tokens is defined in `bin/map.sh:64`:
-
-| Herdr token | Palette source |
-|---|---|
-| `panel_bg` | `background` |
-| `sidebar_bg` | `background` darkened 12% |
-| `active_row_bg`, `surface0` | `palette 0` |
-| `selection_bg` | `selection-background` |
-| `text` | `foreground` |
-| `subtext0`, `overlay1` | `palette 7` |
-| `surface1`, `overlay0` | `palette 8` |
-| `surface_dim` | `background` darkened 8% |
-| `accent`, `blue` | `palette 4` |
-| `red` | `palette 1` |
-| `green` | `palette 2` |
-| `yellow` | `palette 3` |
-| `mauve` | `palette 5` |
-| `teal` | `palette 6` |
-| `peach` | `palette 9` |
-
-Herdr UI theming via `[theme.custom]` works in any terminal emulator. The plugin does not modify the outer terminal.
-
-## Relation to built-in themes
-
-Herdr ships 18 built-ins (`catppuccin`, `tokyo-night`, `gruvbox`, `vesper`, etc. at `src/config/theme.rs`). This plugin does not replace them. It provides a lower-saturation paper alternative via `[theme.custom]`, which is the recommended extension point (`herdr.dev/docs/configuration#theme`).
+- **nordbones** — [Nord](https://www.nordtheme.com) by Arctic Ice Studio
+- **tokyobones** — [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme) by enkia
+- **seoulbones** — [Seoul256](https://github.com/junegunn/seoul256.vim) by Junegunn Choi
+- **duckbones** — [Spaceduck](https://github.com/pinespiders/spaceduck) by pinespider
+- **zenburned** — [Zenburn](https://github.com/jnurmine/Zenburn) by Jalil Nilour
+- **kanagawabones** — [Kanagawa](https://github.com/rebelot/kanagawa.nvim) by rebelot
+- **forestbones** — [Everforest](https://github.com/sainnhe/everforest) by sainnhe
+- **rosebones** — [Rose Pine](https://github.com/rose-pine/neovim) by _s T l
+- **vimbones** — inspired by vim.org's classic green-on-cream palette
 
 ## License
 
-MIT. See `LICENSE`.
+MIT. See [LICENSE](LICENSE).
