@@ -1,6 +1,6 @@
 # Zenbones for Herdr
 
-12 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
+21 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
 ## Themes
 
@@ -18,6 +18,7 @@
 | **zenburned** | dark only | Inspired by Zenburn — muted warm gray |
 | **kanagawabones** | dark only | Inspired by Kanagawa — Japanese ink wash |
 | **vimbones** | light only | Inspired by vim.org — warm yellow-green |
+| **snowbones** | light, dark | Custom — pure white and shades of white, zero hue |
 
 ## Installation
 
@@ -61,7 +62,7 @@ Or via the CLI picker invocation:
 herdr plugin action invoke open --plugin zenbones
 ```
 
-Available slugs: `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`.
+Available slugs: `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`.
 
 ## What is modified
 

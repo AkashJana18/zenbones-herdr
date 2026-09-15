@@ -2,7 +2,7 @@ id = "zenbones"
 name = "Zenbones Themes"
 version = "1.0.0"
 min_herdr_version = "0.8.0"
-description = "12 zenbones color themes for Herdr. Light and dark variants with HSLuv-based palettes. Works in any terminal."
+description = "21 zenbones color themes for Herdr. Light and dark variants with HSLuv-based palettes. Works in any terminal."
 platforms = ["linux", "macos"]
 
 [[panes]]
@@ -16,7 +16,7 @@ command = ["bash", "-c", "exec bash \"$HERDR_PLUGIN_ROOT/bin/picker.sh\""]
 [[actions]]
 id = "open"
 title = "Zenbones — Pick Theme"
-description = "Open the Zenbones theme picker to browse and apply any of 12 themes."
+description = "Open the Zenbones theme picker to browse and apply any of 21 themes."
 contexts = ["global", "workspace", "tab", "pane"]
 platforms = ["linux", "macos"]
 command = ["bash", "-c", "exec \"${HERDR_BIN_PATH:-herdr}\" plugin pane open --plugin zenbones --entrypoint picker --placement popup --focus"]
