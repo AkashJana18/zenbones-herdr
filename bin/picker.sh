@@ -24,26 +24,27 @@ entry() {
 }
 
 pick() {
+  local all=("${themes[@]}" "default")
   if command -v fzf >/dev/null 2>&1; then
     local chosen
     chosen="$(
-      for t in "${themes[@]}"; do entry "$t"; done |
+      for t in "${all[@]}"; do entry "$t"; done |
         fzf --delimiter='\t' --with-nth=2.. --prompt='zenbones> ' --height=40% --reverse --no-multi || true
     )"
     [ -n "$chosen" ] || return 0
     SELECTED="${chosen%%$'\t'*}"
   else
     printf '\n zenbones themes\n\n'
-    for i in "${!themes[@]}"; do
-      [ "${themes[$i]}" = "$current" ] && suffix='  (current)' || suffix=''
-      printf '  [%d] %s%s\n' "$((i+1))" "${themes[$i]//-/ }" "$suffix"
+    for i in "${!all[@]}"; do
+      [ "${all[$i]}" = "$current" ] && suffix='  (current)' || suffix=''
+      printf '  [%d] %s%s\n' "$((i+1))" "${all[$i]//-/ }" "$suffix"
     done
     printf '\n  theme number> '
     local num
     read -r num
     [ -n "$num" ] || return 0
-    [[ "$num" =~ ^[0-9]+$ ]] && [ "$num" -ge 1 ] && [ "$num" -le "${#themes[@]}" ] || return 0
-    SELECTED="${themes[$((num-1))]}"
+    [[ "$num" =~ ^[0-9]+$ ]] && [ "$num" -ge 1 ] && [ "$num" -le "${#all[@]}" ] || return 0
+    SELECTED="${all[$((num-1))]}"
   fi
 }
 

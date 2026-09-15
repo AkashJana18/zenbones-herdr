@@ -3,40 +3,29 @@ set -euo pipefail
 _here="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source "$_here/lib.sh"
 
+strip_theme_custom() {
+  local cfg="$1"
+  awk '
+    /^\[theme\.custom(\.[a-z0-9_]+)*\]$/ { skip=1; next }
+    skip && /^\[[^]]*\]$/ { skip=0 }
+    !skip { print }
+  ' "$cfg" > "$cfg.tmp" && mv "$cfg.tmp" "$cfg"
+}
+
 write_custom_block() {
   local cfg="$1" theme="$2"
-  awk '
-    /^\[theme\.custom\]$/ { skip=1; next }
-    /^\[theme\.custom\./ { skip=1; next }
-    skip && /^\[/ { skip=0 }
-    !skip { print }
-  ' "$cfg" > "$cfg.tmp"
   {
     printf '\n[theme.custom]\n'
     grep '^[a-z0-9_]* *= *"' "$theme"
-  } >> "$cfg.tmp"
-  mv "$cfg.tmp" "$cfg"
+  } >> "$cfg"
 }
 
-apply_theme() {
+trim_trailing_newlines() {
+  perl -0pi -e 's/\n+\z/\n/' "$1"
+}
+
+notify_theme() {
   local slug="$1"
-  local theme
-  theme="$(resolve_theme "$slug")"
-
-  ensure_config_exists
-  local stamp; stamp="$(date +%Y%m%d)"
-  local bak="$CONFIG_PATH.bak-$stamp"
-  [ -f "$bak" ] || cp "$CONFIG_PATH" "$bak"
-
-  awk '
-    /^\[theme\.custom\.light\]$/ { skip=1; next }
-    /^\[theme\.custom\.dark\]$/ { skip=1; next }
-    skip && /^\[/ { skip=0 }
-    !skip { print }
-  ' "$CONFIG_PATH" > "$CONFIG_PATH.tmp" && mv "$CONFIG_PATH.tmp" "$CONFIG_PATH"
-
-  write_custom_block "$CONFIG_PATH" "$theme"
-
   mkdir -p "$STATE_DIR"
   printf '%s\n' "$slug" > "$APPLIED_FILE"
 
@@ -47,9 +36,32 @@ apply_theme() {
   fi
 }
 
+apply_theme() {
+  local slug="$1"
+
+  ensure_config_exists
+  local stamp; stamp="$(date +%Y%m%d)"
+  local bak="$CONFIG_PATH.bak-$stamp"
+  [ -f "$bak" ] || cp "$CONFIG_PATH" "$bak"
+
+  strip_theme_custom "$CONFIG_PATH"
+  trim_trailing_newlines "$CONFIG_PATH"
+
+  if [ "$slug" = "default" ]; then
+    notify_theme default
+    return
+  fi
+
+  local theme
+  theme="$(resolve_theme "$slug")"
+  write_custom_block "$CONFIG_PATH" "$theme"
+  trim_trailing_newlines "$CONFIG_PATH"
+  notify_theme "$slug"
+}
+
 main() {
   local slug="${1:-}"
-  [ -n "$slug" ] || die "usage: apply.sh <theme-slug>\navailable: $(list_themes | tr '\n' ' ')"
+  [ -n "$slug" ] || die "usage: apply.sh <theme-slug>\navailable: default $(list_themes | tr '\n' ' ')"
   apply_theme "$slug"
 }
 

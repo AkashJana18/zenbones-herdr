@@ -56,17 +56,27 @@ Apply a specific theme directly:
 ./bin/apply.sh nordbones-dark
 ```
 
+Reset to Herdr's default theme (removes the custom theme block):
+
+```bash
+./bin/apply.sh default
+```
+
+The theme picker also lists **default** as the last option, so you can switch back to Herdr's default theme without touching its Settings UI.
+
 Or via the CLI picker invocation:
 
 ```bash
 herdr plugin action invoke open --plugin zenbones
 ```
 
-Available slugs: `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`.
+Available slugs: `default`, `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`.
 
 ## What is modified
 
-The plugin writes a `[theme.custom]` block to `~/.config/herdr/config.toml` (or `$HERDR_CONFIG_PATH`). Backups are created as `config.toml.bak-YYYYMMDD`. The plugin runs `herdr server reload-config` after writing. To revert, remove the `[theme.custom]` block or restore the backup.
+The plugin writes a `[theme.custom]` block to `~/.config/herdr/config.toml` (or `$HERDR_CONFIG_PATH`). Backups are created as `config.toml.bak-YYYYMMDD`. The plugin runs `herdr server reload-config` after writing.
+
+To switch back to Herdr's default theme, pick **default** in the theme picker or run `./bin/apply.sh default` — this removes the `[theme.custom]` block (and any appearance-specific `[theme.custom.light]`/`[theme.custom.dark]` sections) so Herdr uses its configured base theme. To revert by hand, remove the `[theme.custom]` block or restore the backup.
 
 Each file in `themes/` contains the 19 Herdr theme tokens (`panel_bg`, `sidebar_bg`, `text`, `accent`, `red`, `green`, ...) pre-computed from the source palette, so there is no runtime color conversion.
 

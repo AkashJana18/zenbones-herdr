@@ -19,3 +19,5 @@ rosebones-dark
 vimbones-light
 snowbones-light
 snowbones-dark
+akabones-light
+akabones-dark
