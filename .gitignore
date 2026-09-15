@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+._*
+
+# Backups
+*.bak-*
+*.tmp
+
+# Logs
+*.log
+herdr.log
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# Herdr state (not in repo)
+.herdr/

@@ -1,0 +1,72 @@
+id = "zenwritten"
+name = "Zenwritten"
+version = "0.1.0"
+min_herdr_version = "0.8.0"
+description = "Paper-inspired minimal theme for Herdr. Port of zenbones zenwritten with muted accents. Works in any terminal."
+platforms = ["linux", "macos", "windows"]
+
+# Unix actions (bash)
+[[actions]]
+id = "light"
+title = "Zenwritten — Light"
+description = "Apply Zenwritten Light (#eeeeee paper). Writes [theme.custom] and reloads Herdr."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["linux", "macos"]
+command = ["bash", "-c", "exec \"${HERDR_PLUGIN_ROOT}/bin/apply.sh\" light"]
+
+[[actions]]
+id = "dark"
+title = "Zenwritten — Dark"
+description = "Apply Zenwritten Dark (#191919 ink). Writes [theme.custom] and reloads Herdr."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["linux", "macos"]
+command = ["bash", "-c", "exec \"${HERDR_PLUGIN_ROOT}/bin/apply.sh\" dark"]
+
+[[actions]]
+id = "auto"
+title = "Zenwritten — Auto"
+description = "Apply Zenwritten for both appearances and enable auto_switch. Writes [theme.custom.light] and [theme.custom.dark]."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["linux", "macos"]
+command = ["bash", "-c", "exec \"${HERDR_PLUGIN_ROOT}/bin/apply.sh\" auto"]
+
+[[actions]]
+id = "toggle"
+title = "Zenwritten — Toggle"
+description = "Toggle between the applied Zenwritten variant."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["linux", "macos"]
+command = ["bash", "-c", "exec \"${HERDR_PLUGIN_ROOT}/bin/apply.sh\" toggle"]
+
+# Windows actions (PowerShell)
+[[actions]]
+id = "light-win"
+title = "Zenwritten — Light"
+description = "Apply Zenwritten Light (#eeeeee paper). Writes [theme.custom] and reloads Herdr."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["windows"]
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${HERDR_PLUGIN_ROOT}/bin/apply.ps1", "light"]
+
+[[actions]]
+id = "dark-win"
+title = "Zenwritten — Dark"
+description = "Apply Zenwritten Dark (#191919 ink). Writes [theme.custom] and reloads Herdr."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["windows"]
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${HERDR_PLUGIN_ROOT}/bin/apply.ps1", "dark"]
+
+[[actions]]
+id = "auto-win"
+title = "Zenwritten — Auto"
+description = "Apply Zenwritten for both appearances and enable auto_switch. Writes [theme.custom.light] and [theme.custom.dark]."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["windows"]
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${HERDR_PLUGIN_ROOT}/bin/apply.ps1", "auto"]
+
+[[actions]]
+id = "toggle-win"
+title = "Zenwritten — Toggle"
+description = "Toggle between the applied Zenwritten variant."
+contexts = ["global", "workspace", "tab", "pane"]
+platforms = ["windows"]
+command = ["powershell.exe", "-NoProfile", "-ExecutionPolicy", "Bypass", "-File", "${HERDR_PLUGIN_ROOT}/bin/apply.ps1", "toggle"]

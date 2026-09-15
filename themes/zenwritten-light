@@ -1,0 +1,24 @@
+# Zenwritten Light — ANSI palette (Ghostty format for interchange; not Ghostty-specific)
+# Port of zenbones zenwritten (light, hsluv 0,0,94 bg / 0,0,22 fg)
+# Derived accents from zenbones defaults: leaf, water, rose, wood, blossom, sky
+background = #eeeeee
+foreground = #353535
+cursor-color = #353535
+selection-background = #d9d9d9
+selection-foreground = #353535
+palette = 0=#c5c0c0
+palette = 1=#a8334c
+palette = 2=#4f6c31
+palette = 3=#944927
+palette = 4=#286486
+palette = 5=#88507d
+palette = 6=#3b8992
+palette = 7=#686868
+palette = 8=#a8a5a5
+palette = 9=#c49a6c
+palette = 10=#2c450a
+palette = 11=#622803
+palette = 12=#003d58
+palette = 13=#632558
+palette = 14=#006169
+palette = 15=#f7f6f6
