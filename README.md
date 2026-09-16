@@ -1,6 +1,6 @@
 # Zenbones for Herdr
 
-21 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
+23 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
 ## Themes
 
@@ -19,6 +19,7 @@
 | **kanagawabones** | dark only | Inspired by Kanagawa — Japanese ink wash |
 | **vimbones** | light only | Inspired by vim.org — warm yellow-green |
 | **snowbones** | light, dark | Custom — pure white and shades of white, zero hue |
+| **akabones** | light, dark | Custom — charcoal & bone, near-monochrome minimal |
 
 ## Installation
 
@@ -70,7 +71,7 @@ Or via the CLI picker invocation:
 herdr plugin action invoke open --plugin zenbones
 ```
 
-Available slugs: `default`, `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`.
+Available slugs: `default`, `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`, `akabones-light`, `akabones-dark`.
 
 ## What is modified
 
@@ -89,7 +90,7 @@ Each file in `themes/` contains the 19 Herdr theme tokens (`panel_bg`, `sidebar_
 
 ## Credits
 
-All color palettes are ported from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) Neovim colorscheme by [winston@wintrcat.uk](https://github.com/zenbones-theme). Zenbones uses HSLuv perceptually uniform color space for palette generation. Individual theme inspirations:
+All color palettes are ported from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) Neovim colorscheme by [winston@wintrcat.uk](https://github.com/zenbones-theme). Zenbones uses HSLuv perceptually uniform color space for palette generation. Herdr port maintained by [Akash Jana](https://github.com/AkashJana18) — apologies for the broken humour, PRs and fixes welcome XD. Individual theme inspirations:
 
 - **nordbones** — [Nord](https://www.nordtheme.com) by Arctic Ice Studio
 - **tokyobones** — [Tokyo Night](https://github.com/enkia/tokyo-night-vscode-theme) by enkia
@@ -100,6 +101,8 @@ All color palettes are ported from the [zenbones](https://github.com/zenbones-th
 - **forestbones** — [Everforest](https://github.com/sainnhe/everforest) by sainnhe
 - **rosebones** — [Rose Pine](https://github.com/rose-pine/neovim) by _s T l
 - **vimbones** — inspired by vim.org's classic green-on-cream palette
+- **snowbones** — Custom pure-white minimal by [Akash Jana](https://github.com/AkashJana18)
+- **akabones** — Custom charcoal & bone minimal by [Akash Jana](https://github.com/AkashJana18)
 
 ## License
 
