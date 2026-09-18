@@ -2,6 +2,11 @@
 
 23 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
+
+https://github.com/user-attachments/assets/f350fa08-c7cb-42df-bedf-a438aa564b9b
+
+
+
 ## Themes
 
 | Theme | Variants | Description |
