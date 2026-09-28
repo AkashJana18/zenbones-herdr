@@ -42,6 +42,8 @@ Marketplace listing requires the repository topic `herdr-plugin`.
 
 ## Usage
 
+> Step-by-step walkthrough: [How to Change Your Herdr Theme](https://dev.to/akashjana/how-to-change-your-herdr-theme-37e5)
+
 Open the theme picker:
 
 ```
@@ -68,7 +70,7 @@ Reset to Herdr's default theme (removes the custom theme block):
 ./bin/apply.sh default
 ```
 
-The theme picker also lists **default** as the last option, so you can switch back to Herdr's default theme without touching its Settings UI.
+The theme picker also lists **default** as the first option, so you can switch back to Herdr's default theme without touching its Settings UI.
 
 Or via the CLI picker invocation:
 
@@ -76,7 +78,7 @@ Or via the CLI picker invocation:
 herdr plugin action invoke open --plugin zenbones
 ```
 
-Available slugs: `default`, `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`, `snowbones-light`, `snowbones-dark`, `akabones-light`, `akabones-dark`.
+Available slugs: `default`, `akabones-light`, `akabones-dark`, `snowbones-light`, `snowbones-dark`, `zenbones-light`, `zenbones-dark`, `neobones-light`, `neobones-dark`, `nordbones-dark`, `tokyobones-light`, `tokyobones-dark`, `seoulbones-light`, `seoulbones-dark`, `duckbones-dark`, `zenburned-dark`, `kanagawabones-dark`, `zenwritten-light`, `zenwritten-dark`, `forestbones-light`, `forestbones-dark`, `rosebones-light`, `rosebones-dark`, `vimbones-light`.
 
 ## What is modified
 

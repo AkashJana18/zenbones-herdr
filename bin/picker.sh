@@ -24,7 +24,7 @@ entry() {
 }
 
 pick() {
-  local all=("${themes[@]}" "default")
+  local all=("default" "${themes[@]}")
   if command -v fzf >/dev/null 2>&1; then
     local chosen
     chosen="$(
