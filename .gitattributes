@@ -1,0 +1,7 @@
+# Theme files are line-parsed into config.toml at apply time, so a CRLF
+# checkout on Windows must not leak carriage returns into the TOML values.
+themes/*    text eol=lf
+bin/*.sh    text eol=lf
+*.toml      text eol=lf
+*.md        text eol=lf
+*.txt       text eol=lf
