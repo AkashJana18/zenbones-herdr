@@ -91,8 +91,9 @@ Each file in `themes/` contains the 19 Herdr theme tokens (`panel_bg`, `sidebar_
 ## Compatibility
 
 - Herdr `>=0.8.0`
-- Platforms: Linux, macOS
-- Requires: `bash`, `awk`, `grep` (standard on all Unix systems)
+- Platforms: Linux, macOS, Windows
+- Requires: `bash`, `awk`, `grep`, `tr` (standard on all Unix systems)
+- On Windows: [Git for Windows](https://gitforwindows.org/), with `bash` on `PATH` so Herdr can launch the scripts. Herdr's Windows plugin support is in preview.
 - Optional: `fzf` for the interactive picker (falls back to numbered menu)
 
 ## Credits

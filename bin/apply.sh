@@ -16,12 +16,21 @@ write_custom_block() {
   local cfg="$1" theme="$2"
   {
     printf '\n[theme.custom]\n'
-    grep '^[a-z0-9_]* *= *"' "$theme"
+    tr -d '\r' < "$theme" | grep '^[a-z0-9_]* *= *"'
   } >> "$cfg"
 }
 
 trim_trailing_newlines() {
-  perl -0pi -e 's/\n+\z/\n/' "$1"
+  local cfg="$1"
+  awk '
+    { lines[NR] = $0 }
+    END {
+      last = NR
+      while (last > 0 && lines[last] ~ /^[[:space:]]*$/) last--
+      if (last == 0) print ""
+      else for (i = 1; i <= last; i++) print lines[i]
+    }
+  ' "$cfg" > "$cfg.trim" && mv "$cfg.trim" "$cfg"
 }
 
 notify_theme() {
@@ -29,7 +38,7 @@ notify_theme() {
   mkdir -p "$STATE_DIR"
   printf '%s\n' "$slug" > "$APPLIED_FILE"
 
-  if herdr server reload-config >/dev/null 2>&1; then
+  if "${HERDR_BIN_PATH:-herdr}" server reload-config >/dev/null 2>&1; then
     printf 'Applied %s → %s\n' "$slug" "$CONFIG_PATH"
   else
     printf '%s written to %s (reload failed — run: herdr server reload-config)\n' "$slug" "$CONFIG_PATH" >&2

@@ -1,9 +1,41 @@
 #!/usr/bin/env bash
 # shared helpers for zenbones herdr plugin
 
+# Git Bash reports msys/cygwin via OSTYPE and always sets MSYSTEM.
+case "${OSTYPE:-}" in
+  msys*|cygwin*|win32*) OS_IS_WINDOWS=1 ;;
+  *) OS_IS_WINDOWS="${MSYSTEM:+1}" ;;
+esac
+
+# Herdr keeps config at ~/.config/herdr on Unix and %APPDATA%\herdr on Windows.
+# Git Bash exports APPDATA as a native Windows path, so convert it before use.
+_posix_path() {
+  if command -v cygpath >/dev/null 2>&1; then
+    cygpath -u "$1"
+  else
+    printf '%s\n' "$1"
+  fi
+}
+
+_default_config_path() {
+  if [ -n "$OS_IS_WINDOWS" ] && [ -n "${APPDATA:-}" ]; then
+    printf '%s/herdr/config.toml\n' "$(_posix_path "$APPDATA")"
+  else
+    printf '%s/.config/herdr/config.toml\n' "$HOME"
+  fi
+}
+
+_default_state_dir() {
+  if [ -n "$OS_IS_WINDOWS" ] && [ -n "${LOCALAPPDATA:-}" ]; then
+    printf '%s/herdr-zenbones\n' "$(_posix_path "$LOCALAPPDATA")"
+  else
+    printf '%s/herdr-zenbones\n' "${XDG_STATE_HOME:-$HOME/.local/state}"
+  fi
+}
+
 THEME_ROOT="${HERDR_PLUGIN_ROOT:-$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)}"
-CONFIG_PATH="${HERDR_CONFIG_PATH:-$HOME/.config/herdr/config.toml}"
-STATE_DIR="${HERDR_PLUGIN_STATE_DIR:-${XDG_STATE_HOME:-$HOME/.local/state}/herdr-zenbones}"
+CONFIG_PATH="${HERDR_CONFIG_PATH:-$(_default_config_path)}"
+STATE_DIR="${HERDR_PLUGIN_STATE_DIR:-$(_default_state_dir)}"
 APPLIED_FILE="$STATE_DIR/applied"
 INDEX_FILE="$THEME_ROOT/themes/index.txt"
 
