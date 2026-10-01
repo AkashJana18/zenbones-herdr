@@ -1,10 +1,22 @@
+<div align="center">
+  <img src="docs/banner.png" alt="23 color themes for Herdr" width="100%">
+</div>
+
 # Zenbones for Herdr
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Herdr](https://img.shields.io/badge/herdr-%3E%3D0.8.0-7c3aed.svg)](https://herdr.dev)
+[![Platforms](https://img.shields.io/badge/platforms-linux%20%7C%20macOS%20%7C%20Windows-555.svg)](https://herdr.dev)
+[![Themes](https://img.shields.io/badge/themes-23-23c76d.svg)](themes/)
+[![Stars](https://img.shields.io/github/stars/AkashJana18/zenbones-herdr?style=social)](https://github.com/AkashJana18/zenbones-herdr/stargazers)
+[![Forks](https://img.shields.io/github/forks/AkashJana18/zenbones-herdr?style=social)](https://github.com/AkashJana18/zenbones-herdr/network/members)
+[![Issues](https://img.shields.io/github/issues/AkashJana18/zenbones-herdr)](https://github.com/AkashJana18/zenbones-herdr/issues)
+[![Last commit](https://img.shields.io/github/last-commit/AkashJana18/zenbones-herdr)](https://github.com/AkashJana18/zenbones-herdr/commits)
 
 23 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
 
 https://github.com/user-attachments/assets/f350fa08-c7cb-42df-bedf-a438aa564b9b
-
 
 
 ## Themes
@@ -25,6 +37,78 @@ https://github.com/user-attachments/assets/f350fa08-c7cb-42df-bedf-a438aa564b9b
 | **vimbones** | light only | Inspired by vim.org — warm yellow-green |
 | **snowbones** | light, dark | Custom — pure white and shades of white, zero hue |
 | **akabones** | light, dark | Custom — charcoal & bone, near-monochrome minimal |
+
+## Preview
+
+Real Herdr, captured by attaching a throwaway client to a pty and reading back
+the ANSI it draws — then rasterised through a real terminal emulator. Nothing
+here is a mockup; these are the actual themes rendering the actual UI.
+
+<table>
+<tr><td align="center"><b>akabones light</b><br><sub>charcoal &amp; bone, near-monochrome</sub></td><td align="center"><b>akabones dark</b><br><sub>the one to install</sub></td></tr>
+<tr>
+<td><img src="docs/themes/akabones-light.png" width="100%"></td>
+<td><img src="docs/themes/akabones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>snowbones light</b><br><sub>pure white, zero hue</sub></td><td align="center"><b>snowbones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/snowbones-light.png" width="100%"></td>
+<td><img src="docs/themes/snowbones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>zenbones light</b><br><sub>the base theme</sub></td><td align="center"><b>zenbones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/zenbones-light.png" width="100%"></td>
+<td><img src="docs/themes/zenbones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>zenwritten light</b><br><sub>pure grayscale</sub></td><td align="center"><b>zenwritten dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/zenwritten-light.png" width="100%"></td>
+<td><img src="docs/themes/zenwritten-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>neobones light</b><br><sub>neovim.io green</sub></td><td align="center"><b>neobones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/neobones-light.png" width="100%"></td>
+<td><img src="docs/themes/neobones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>forestbones light</b><br><sub>Everforest</sub></td><td align="center"><b>forestbones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/forestbones-light.png" width="100%"></td>
+<td><img src="docs/themes/forestbones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>rosebones light</b><br><sub>Rose Pine</sub></td><td align="center"><b>rosebones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/rosebones-light.png" width="100%"></td>
+<td><img src="docs/themes/rosebones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>tokyobones light</b><br><sub>Tokyo Night</sub></td><td align="center"><b>tokyobones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/tokyobones-light.png" width="100%"></td>
+<td><img src="docs/themes/tokyobones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>seoulbones light</b><br><sub>Seoul256</sub></td><td align="center"><b>seoulbones dark</b></td></tr>
+<tr>
+<td><img src="docs/themes/seoulbones-light.png" width="100%"></td>
+<td><img src="docs/themes/seoulbones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>vimbones light</b><br><sub>vim.org cream</sub></td><td align="center"><b>nordbones dark</b><br><sub>Nord</sub></td></tr>
+<tr>
+<td><img src="docs/themes/vimbones-light.png" width="100%"></td>
+<td><img src="docs/themes/nordbones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>zenburned dark</b><br><sub>Zenburn</sub></td><td align="center"><b>kanagawabones dark</b><br><sub>Kanagawa</sub></td></tr>
+<tr>
+<td><img src="docs/themes/zenburned-dark.png" width="100%"></td>
+<td><img src="docs/themes/kanagawabones-dark.png" width="100%"></td>
+</tr>
+<tr><td align="center"><b>duckbones dark</b><br><sub>Spaceduck</sub></td><td></td></tr>
+<tr>
+<td><img src="docs/themes/duckbones-dark.png" width="100%"></td>
+<td></td>
+</tr>
+</table>
+
+> Regenerate with `python3 remotion/scripts/capture_theme_gallery.py --render` —
+> see [`remotion/README.md`](remotion/README.md#theme-gallery).
 
 ## Installation
 
