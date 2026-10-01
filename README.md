@@ -1,17 +1,11 @@
-<div align="center">
-  <img src="docs/banner.png" alt="23 color themes for Herdr" width="100%">
-</div>
+<img width="1470" height="500" alt="zenbones-banner" src="https://github.com/user-attachments/assets/715cfb32-1343-41a9-a1fe-588a04d0e346" />
 
-# Zenbones for Herdr
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Herdr](https://img.shields.io/badge/herdr-%3E%3D0.8.0-7c3aed.svg)](https://herdr.dev)
-[![Platforms](https://img.shields.io/badge/platforms-linux%20%7C%20macOS%20%7C%20Windows-555.svg)](https://herdr.dev)
+[![Platforms](https://img.shields.io/badge/platforms-linux%20%7C%20macOS%20%7C%20Windows-9999.svg)](https://herdr.dev)
 [![Themes](https://img.shields.io/badge/themes-23-23c76d.svg)](themes/)
 [![Stars](https://img.shields.io/github/stars/AkashJana18/zenbones-herdr?style=social)](https://github.com/AkashJana18/zenbones-herdr/stargazers)
-[![Forks](https://img.shields.io/github/forks/AkashJana18/zenbones-herdr?style=social)](https://github.com/AkashJana18/zenbones-herdr/network/members)
-[![Issues](https://img.shields.io/github/issues/AkashJana18/zenbones-herdr)](https://github.com/AkashJana18/zenbones-herdr/issues)
-[![Last commit](https://img.shields.io/github/last-commit/AkashJana18/zenbones-herdr)](https://github.com/AkashJana18/zenbones-herdr/commits)
 
 23 color themes from the [zenbones](https://github.com/zenbones-theme/zenbones.nvim) ecosystem for the [Herdr](https://herdr.dev) terminal multiplexer. HSLuv-based palettes, light and dark variants, works in any terminal.
 
@@ -22,7 +16,7 @@ https://github.com/user-attachments/assets/f350fa08-c7cb-42df-bedf-a438aa564b9b
 ## Themes
 
 | Theme | Variants | Description |
-|---|---|---|
+| --- | --- | --- |
 | **zenbones** | light, dark | The base theme — contrast-focused, warm accents |
 | **zenwritten** | light, dark | Zero saturation, pure grayscale + zenbones accents |
 | **neobones** | light, dark | Inspired by neovim.io — green-leaning |
@@ -40,12 +34,8 @@ https://github.com/user-attachments/assets/f350fa08-c7cb-42df-bedf-a438aa564b9b
 
 ## Preview
 
-Real Herdr, captured by attaching a throwaway client to a pty and reading back
-the ANSI it draws — then rasterised through a real terminal emulator. Nothing
-here is a mockup; these are the actual themes rendering the actual UI.
-
 <table>
-<tr><td align="center"><b>akabones light</b><br><sub>charcoal &amp; bone, near-monochrome</sub></td><td align="center"><b>akabones dark</b><br><sub>the one to install</sub></td></tr>
+<tr><td align="center"><b>akabones light</b><br><sub>charcoal &amp; bone, near-monochrome</sub></td><td align="center"><b>akabones dark</b><br><sub>Personal favorite</sub></td></tr>
 <tr>
 <td><img src="docs/themes/akabones-light.png" width="100%"></td>
 <td><img src="docs/themes/akabones-dark.png" width="100%"></td>
@@ -107,8 +97,6 @@ here is a mockup; these are the actual themes rendering the actual UI.
 </tr>
 </table>
 
-> Regenerate with `python3 remotion/scripts/capture_theme_gallery.py --render` —
-> see [`remotion/README.md`](remotion/README.md#theme-gallery).
 
 ## Installation
 
@@ -126,7 +114,7 @@ Marketplace listing requires the repository topic `herdr-plugin`.
 
 ## Usage
 
-> Step-by-step walkthrough: [How to Change Your Herdr Theme](https://dev.to/akashjana/how-to-change-your-herdr-theme-37e5)
+### Step-by-step walkthrough: [How to Change Your Herdr Theme](https://dev.to/akashjana/how-to-change-your-herdr-theme-37e5)
 
 Open the theme picker:
 
