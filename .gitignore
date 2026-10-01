@@ -19,3 +19,11 @@ herdr.log
 
 # Herdr state (not in repo)
 .herdr/
+
+# Video project (remotion/)
+remotion/node_modules/
+remotion/out/
+remotion/.cache/
+remotion/.venv/
+
+.gitignore
